@@ -1,5 +1,6 @@
 <script lang="ts">
   import favicon from '$lib/assets/favicon.svg';
+  import { resolve } from '$app/paths';
 
   let { children } = $props();
 
@@ -12,8 +13,13 @@
 
 <div class="flex h-screen">
   <aside class="flex flex-col w-32 bg-gray-500 space-y-2 p-2">
-    <div>Sidebar</div>
-    <div>Test</div>
+    <nav>
+      <ul>
+        <li><a href={resolve('/')}>test</a></li>
+        <li><a href="https://www.google.com" rel="external">test4141</a></li>
+        <li>test3</li>
+      </ul>
+    </nav>
   </aside>
   <main class="flex-1 bg-gray-700 p-4 overflow-auto">
     {@render children()}
