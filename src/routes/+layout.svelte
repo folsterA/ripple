@@ -1,11 +1,14 @@
 <script lang="ts">
   import favicon from '$lib/assets/favicon.svg';
   import { resolve } from '$app/paths';
+  import ExternalLinkHandler from '$lib/ExternalLinkHandler.svelte';
 
   let { children } = $props();
 
   import '../app.css';
 </script>
+
+<ExternalLinkHandler />
 
 <svelte:head>
   <link rel="icon" href={favicon} />
