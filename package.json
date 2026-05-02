@@ -24,7 +24,7 @@
     "@types/node": "^22",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-svelte": "^3.17.0",
+    "eslint-plugin-svelte": "^3.17.1",
     "globals": "^17.4.0",
     "prettier": "^3.8.1",
     "prettier-plugin-svelte": "^3.5.1",
@@ -32,11 +32,17 @@
     "svelte-check": "^4.4.6",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.58.1",
-    "vite": "^8.0.7"
+    "vite": "^8.0.10"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "@tauri-apps/plugin-opener": "^2.5.3",
     "tailwindcss": "^4.2.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": "^8.5.10",
+      "cookie": "^0.7.0"
+    }
   }
 }
