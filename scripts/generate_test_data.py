@@ -75,7 +75,7 @@ def main():
     messages = generate_message_data(users)
     message_file.write_text(json.dumps(messages, indent=2))
 
-    print(f"Wrote test data to {user_file} and {message_file}")
+    print(f"Wrote test data to {output_dir}")
 
 
 if __name__ == "__main__":
