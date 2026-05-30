@@ -19,13 +19,12 @@
     <nav>
       <ul>
         <li><a href={resolve('/')}>home</a></li>
-        <li><a href={resolve('/text')}>texts</a></li>
+        <li><a href={resolve('/1234')}>server: 1234</a></li>
         <li><a href="https://www.google.com" rel="external">external</a></li>
-        <li>test3</li>
       </ul>
     </nav>
   </aside>
-  <main class="flex-1 pl-3 bg-gray-700 overflow-auto custom-scrollbar">
+  <main class="flex-1 pl-3 bg-gray-700">
     {@render children()}
   </main>
 </div>
