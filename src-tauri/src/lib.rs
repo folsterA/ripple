@@ -10,17 +10,6 @@ pub fn run() {
                         .level(log::LevelFilter::Info)
                         .build(),
                 )?;
-
-                let cwd = std::env::current_dir().expect("failed to get cwd");
-                let script = cwd
-                    .parent()
-                    .expect("no parent directory")
-                    .join("scripts/generate_test_data.py");
-
-                std::process::Command::new("python")
-                    .arg(script)
-                    .status()
-                    .expect("failed to generate test data");
             }
 
             Ok(())
