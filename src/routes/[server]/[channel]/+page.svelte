@@ -1,3 +1,11 @@
+<script lang="ts">
+  let { params } = $props();
+</script>
+
+<h2>Channel: {params.channel}</h2>
+<p>This is the channel page.</p>
+
+<!-- list of messages -->
 <div>
   <ul class="p-1 flax justify-between">
     <li class="w-2/3 m-1 p-2 items-start rounded-2xl bg-blue-500">
