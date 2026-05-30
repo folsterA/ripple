@@ -5,6 +5,9 @@ import random
 
 fake = Faker()
 
+num_users = 5
+num_channels = 5
+
 
 class User:
     id: str
@@ -19,14 +22,14 @@ class User:
 
 def generate_user_data():
     users = []
-    for i in range(5):
+    for i in range(num_users):
         user = User(i, fake.user_name(), fake.image_url())
         users.append(user.__dict__)
     return users
 
 
 class Message:
-    chat_id: str
+    channel_id: str
     contents: str
     id: str
     timestamp: int
@@ -40,19 +43,21 @@ class Message:
         self.user_id = user_id
 
 
-def generate_message_data(users):
+def generate_message_data():
     messages = []
-    for i in range(5):
+    for i in range(num_channels):
         chat_id = i
         start_datetime = int(
             fake.date_time_between(start_date="-5d", end_date="now").timestamp()
         )
         timestamp = start_datetime
         for j in range(random.randint(10, 20)):
-            user_id = random.randint(0, 4)
+            user_id = random.randint(0, num_users - 1)
             contents = fake.text()
             timestamp += random.randint(30, 3 * 60 * 60)
-            message = Message(chat_id, contents, i * 5 + j, timestamp, user_id)
+            message = Message(
+                chat_id, contents, i * num_channels + j, timestamp, user_id
+            )
             messages.append(message.__dict__)
     return messages
 
@@ -72,7 +77,7 @@ def main():
     if message_file.exists():
         message_file.unlink()
 
-    messages = generate_message_data(users)
+    messages = generate_message_data()
     message_file.write_text(json.dumps(messages, indent=2))
 
     print(f"Wrote test data to {output_dir}")
