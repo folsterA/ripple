@@ -42,6 +42,6 @@ export default defineConfig(
     rules: {}
   },
   {
-    ignores: ['src-tauri/target/']
+    ignores: ['src-tauri/target/', 'src-tauri/gen/']
   }
 );
