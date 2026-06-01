@@ -64,6 +64,9 @@ jobs:
       - name: Svelte/TS check
         run: pnpm check
 
+      - name: Security audit
+        run: pnpm audit --audit-level=high --prod
+
       - name: JS tests
         if: ${{ hashFiles('**/*.test.*') != '' }}
         run: pnpm test
