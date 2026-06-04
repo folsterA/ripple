@@ -3,47 +3,46 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "packageManager": "pnpm@10.17.1",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "svelte-kit sync || echo ''",
+    "prepare": "svelte-kit sync || echo '' && husky install",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.4",
+    "@eslint/compat": "^2.1.0",
     "@eslint/js": "^10.0.1",
     "@sveltejs/adapter-auto": "^7.0.1",
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.57.0",
-    "@sveltejs/vite-plugin-svelte": "^7.0.0",
-    "@tauri-apps/cli": "^2.10.1",
-    "@types/node": "^22",
-    "eslint": "^10.2.0",
+    "@sveltejs/kit": "^2.62.0",
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@tauri-apps/cli": "^2.11.2",
+    "@types/node": "^22.19.19",
+    "eslint": "^10.4.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-svelte": "^3.17.1",
-    "globals": "^17.4.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-svelte": "^3.5.1",
-    "svelte": "^5.55.2",
-    "svelte-check": "^4.4.6",
-    "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.1",
-    "vite": "^8.0.10"
+    "eslint-plugin-svelte": "^3.19.0",
+    "globals": "^17.6.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.8.3",
+    "prettier-plugin-svelte": "^3.5.2",
+    "svelte": "^5.56.1",
+    "svelte-check": "^4.5.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.60.1",
+    "vite": "^8.0.16"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.4",
+    "@tailwindcss/vite": "^4.3.0",
     "@tauri-apps/api": "^2.11.0",
-    "@tauri-apps/plugin-opener": "^2.5.3",
-    "tailwindcss": "^4.2.4"
-  },
-  "pnpm": {
-    "overrides": {
-      "postcss": "^8.5.10",
-      "cookie": "^0.7.0"
-    }
+    "@tauri-apps/plugin-opener": "^2.5.4",
+    "tailwindcss": "^4.3.0"
   }
 }
