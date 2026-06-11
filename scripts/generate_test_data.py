@@ -29,34 +29,35 @@ def generate_user_data():
     return users
 
 class Server:
+    description: str
     id: str
     name: str
     profile_url: str
-    description: str
 
     def __init__(self):
+        self.description = fake.sentence()
         self.id = fake.uuid4()
         self.name = fake.company()
         self.profile_url = fake.image_url()
-        self.description = fake.sentence()
 
 def generate_server_data():
     servers = []
-    for i in range(num_servers):
+    for _ in range(num_servers):
         server = Server()
         servers.append(server.__dict__)
     return servers
 
 class Channel:
+    description: str
     id: str
     name: str
+    server_id: str
     pinned_messages: list[str]
-    description: str
 
     def __init__(self):
+        self.description = fake.sentence()
         self.id = fake.uuid4()
         self.name = "-".join(fake.words(nb=random.randint(2, 5))).lower()
-        self.description = fake.sentence()
 
 def generate_channel_data(servers):
     channels = []
