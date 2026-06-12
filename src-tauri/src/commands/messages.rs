@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use serde::{Deserialize, Serialize};
 use tauri::command;
 
@@ -13,10 +15,10 @@ struct Message {
 #[command]
 pub async fn get_messages(channel_id: u32) -> Result<String, String> {
     // grab the list of messages
-    let path = format!(
-        "{}/src-tauri/test-data/messages.json",
-        env!("CARGO_MANIFEST_DIR")
-    );
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("test-data")
+        .join("messages.json");
+
     let file = std::fs::read_to_string(path).map_err(|e| e.to_string())?;
 
     let messages: Vec<Message> =

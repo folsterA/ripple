@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use serde::{Deserialize, Serialize};
 use tauri::command;
 
@@ -11,10 +13,10 @@ struct User {
 #[command]
 pub async fn get_user(id: String) -> Result<String, String> {
     // grab the list of users
-    let path = format!(
-        "{}/src-tauri/test-data/users.json",
-        env!("CARGO_MANIFEST_DIR")
-    );
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("test-data")
+        .join("users.json");
+
     let file = std::fs::read_to_string(path).map_err(|e| e.to_string())?;
 
     // unwrap it into a list of users
